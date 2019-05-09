@@ -207,6 +207,12 @@ module.exports = function WriteFileWebpackPlugin(userOptions = {}) {
 
           if (outputFilePath.indexOf("bundle.js") !== -1) {
             assetSource = assetSource.replace(/window.location.port/g, options.hotReloadPort );
+            if (options.hotReloadProtocol) {
+              assetSource = assetSource.replace(/window.location.protocol/g, options.hotReloadProtocol );
+            }
+            if (options.hotReloadHostname) {
+              assetSource = assetSource.replace(/window.location.hostname/g, options.hotReloadHostname );
+            }
           }
 
           fs.writeFileSync(relativeOutputPath.split("?")[0], assetSource);
