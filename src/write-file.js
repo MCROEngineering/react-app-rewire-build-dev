@@ -36,7 +36,9 @@ module.exports = function WriteFileWebpackPlugin(userOptions = {}) {
       test: null,
       useHashIndex: true,
       outputPath: "/",
-      hotReloadPort : "3000"
+      hotReloadPort : "3000",
+      hotReloadHostname : "window.location.hostname",
+      hotReloadProtocol : "window.location.protocol"
     },
     userOptions
   );
